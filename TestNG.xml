@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<suite name="Suite" parallel="false">
+  <test name="Test" parallel="false">
+    <classes>
+      <class name="com.techinfuse.test.New1Test"/>
+      <class name="com.techinfuse.test.MytestNgTest"/>
+      
+     <class name="memeberlogin.LoginTest2"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
