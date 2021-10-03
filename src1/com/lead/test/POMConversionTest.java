@@ -38,34 +38,62 @@ import com.lead.pages.LeadConvertPage;
   } 
  
 
-      //Convert Lead
-        @Test (priority=2)	
-       public void Leadconversion() throws AWTException, Exception  {      
-        	       	           
-          	LeadConvertPage Convertlead = PageFactory.initElements(driver, LeadConvertPage.class);                     
-            Convertlead.setconvert();
-            Convertlead.setstatus();
-            Thread.sleep(3000);
-            
-            Robot rb =new Robot();			
-    		rb.keyPress(KeyEvent.VK_D);
-    		rb.keyRelease(KeyEvent.VK_D);
-    		Thread.sleep(3000);
-            
-      
-       	  WebElement convert = (new WebDriverWait(driver,40))       			   
-       	 .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector("body > div.desktop.container.forceStyle.oneOne.navexDesktopLayoutContainer.lafAppLayoutHost.forceAccess.tablet > div.DESKTOP.uiContainerManager > div > div.panel.slds-modal.slds-fade-in-open > div > div.modal-footer.slds-modal__footer > button.slds-button.slds-button--neutral.uiButton--default.uiButton--brand.uiButton.runtime_sales_leadConvertModalFooter")));      
-       	  convert.click();
-       	 Convertlead.setCONVERTTAB();
-        }        
- 
-        
+ /Convert Lead
+            @Test (priority=2)	
+            public void Leadconversion() throws AWTException, Exception  {      
+         
+     	//convert tab
+       	WebElement converttab = driver.findElement(By.xpath("//span[@class='uiOutputText']"));
+       	JavascriptExecutor javascriptExecutor = (JavascriptExecutor) driver;
+       	javascriptExecutor.executeScript("arguments[0].focus(); arguments[0].click()", converttab);
+       	 Thread.sleep(2000);
+
+       	//mark as converted status
+         WebElement status = driver.findElement(By.xpath("//div[@class='modal-footer slds-modal__footer']"));
+         JavascriptExecutor newjavascriptExecutor = (JavascriptExecutor) driver;
+       	newjavascriptExecutor.executeScript("arguments[0].focus(); arguments[0].click()", status);
+         status.click();		        
+         Thread.sleep(2000);
+         
+         //Robot class for pop up window movement  
+         Robot rb =new Robot();			
+ 		rb.keyPress(KeyEvent.VK_D);
+ 		rb.keyRelease(KeyEvent.VK_D);
+ 		Thread.sleep(2000);
+         
+ 		//wait for element to be clickable
+         WebElement convert = (new WebDriverWait(driver, 30))
+         .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(("body > div.desktop.container.forceStyle.oneOne.navexDesktopLayoutContainer.lafAppLayoutHost.forceAccess.tablet > div.DESKTOP.uiContainerManager > div.DESKTOP.uiModal--leadConvert.uiModal.leadConvertModal.open.active > div.panel.slds-modal.slds-fade-in-open > div > div.modal-footer.slds-modal__footer > button.slds-button.slds-button--neutral.uiButton--default.uiButton--brand.uiButton.runtime_sales_leadConvertModalFooter"))));      
+         convert.click();
+         
+        }
+               
   
 //quit the Test
   @AfterTest
   public void afterTest() {
 	  System.out.println("Test Passed");	 
-	  driver.quit();
-	
+	  driver.quit(); 
   }
   }
+     
+     
+     
+     
+        
+/*      LeadConvertPage Convertlead = PageFactory.initElements(driver, LeadConvertPage.class);                     
+        Convertlead.setconvert();
+        Convertlead.setstatus();
+        Robot class for pop up window movement  
+        Robot rb =new Robot();			
+         rb.keyPress(KeyEvent.VK_D);
+         rb.keyRelease(KeyEvent.VK_D);
+         Thread.sleep(2000);
+
+          //wait for element to be clickable
+          WebElement convert = (new WebDriverWait(driver, 30))
+           .until(ExpectedConditions.presenceOfElementLocated(By.cssSelector(("body > div.desktop.container.forceStyle.oneOne.navexDesktopLayoutContainer.lafAppLayoutHost.forceAccess.tablet > div.DESKTOP.uiContainerManager > div.DESKTOP.uiModal--leadConvert.uiModal.leadConvertModal.open.active > div.panel.slds-modal.slds-fade-in-open > div > div.modal-footer.slds-modal__footer > button.slds-button.slds-button--neutral.uiButton--default.uiButton--brand.uiButton.runtime_sales_leadConvertModalFooter"))));      
+           convert.click();
+
+           Convertlead.setconvertab();
+          */
