@@ -25,7 +25,7 @@ public class CreateLead {
 
 			driver.get(("https://drivesolutions-dev-ed.lightning.force.com"));
 			driver.findElement(By.id("username")).sendKeys("venus@drivesolution.ca");
-			driver.findElement(By.id("password")).sendKeys("!!D#6!N*");
+			driver.findElement(By.id("password")).sendKeys("");
 			driver.findElement(By.id("Login")).click();
 			driver.manage().window().maximize();
 		 	 driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
