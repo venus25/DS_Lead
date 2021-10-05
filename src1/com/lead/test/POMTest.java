@@ -20,7 +20,7 @@ import com.lead.pages.LeadCreationpagefactory;
 		    		 
 		    	DsLoginPage  loginpage = PageFactory.initElements(driver, DsLoginPage.class);
 		    	loginpage.setUser("venus@drivesolution.ca");
-		    	loginpage.setPassword("!!D#6!N*");
+		    	loginpage.setPassword(");
 		    	loginpage.clickOnLoginButton();
 		        driver.navigate().to("https://drivesolutions-dev-ed.lightning.force.com/lightning/setup/SetupOneHome/home");			    	
 		    	String Title = driver.getTitle();
