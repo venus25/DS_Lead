@@ -11,7 +11,7 @@ import com.lead.pages.DsLoginPage;
  
 		DsLoginPage  loginpage = PageFactory.initElements(driver, DsLoginPage.class);
 		loginpage.setUser("venus@drivesolution.ca");
-		loginpage.setPassword("!!D#6!N*");
+		loginpage.setPassword(");
 		loginpage.clickOnLoginButton();
 		
 	driver.navigate().to("https://drivesolutions-dev-ed.lightning.force.com/lightning/page/home");
